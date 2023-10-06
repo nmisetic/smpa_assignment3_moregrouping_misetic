@@ -82,14 +82,14 @@ In other words, you want to end up with the calculated mean for what that percen
 
 ```{r}
 impeach %>% 
-  group_by(pct_bachelors_compared_to_national) %>% 
+  group_by(for_impeachment) %>% 
   summarise(
     count_support=n(),
     mean_pct_bachelors=mean(pct_bachelors),
   ) %>% 
   arrange(desc(count_support))
 
-# Using the summarize function, I counted by Bachelors % while also calculating the mean. From this, the mean percent of Bachelors above the national is 40.85, while the mean for those below is 22.49
+# Using the summarize function, I counted by Bachelors % while also calculating the mean. From this, the mean percent of Bachelors of those for impeachment was 33.69, while the mean for those against was 27.65
 ```
 
 5)  Do the same as #4, but this time show the MEAN *percentage of the vote that Donald Trump received* for districts that are Yes for impeachment vs. No.  
