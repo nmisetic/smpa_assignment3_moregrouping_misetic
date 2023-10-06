@@ -58,25 +58,20 @@ You'll want to ensure you do the grouping on both columns together, e.g. `group_
 
 ```{r}
 impeach %>% 
-  group_by(for_impeachment, median_income_compared_to_national) %>% 
+  group_by(for_impeachment, gdp_above_national) %>% 
   summarise(count_support=n())
 
-# Using the above example, I put both criteria in the same function so that the two groups would appear together. Of those against impeachment, 11 were above the median income while 15 were below. Of those for impeachment, 125 were above the median income while 84 were below.
+# Using the above example, I put both criteria in the same function so that the two groups would appear together. Of those against impeachment, 7 were above the median income while 19 were below. Of those for impeachment, 126 were above the median income while 83 were below.
 ```
 
 3)  Now do the same as #2, but this time instead of GDP, group by whether the district is above or below the national average for the percentage of college graduates. The column that captures this information is `pct_bachelors_compared_to_national`.
 
 ```{r}
+impeach %>% 
+  group_by(for_impeachment, pct_bachelors_compared_to_national) %>% 
+  summarise(count_support=n())
 
-
-
-
-
-
-
-
-
-
+# Used the same code as #2, but replaced 'gdp_above_national' with 'pct_bachelors_compared_to_national'
 ```
 
 4)  Let's look at the college graduation comparison in a slightly different way.  
