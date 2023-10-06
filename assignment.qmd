@@ -151,15 +151,13 @@ impeach %>%
 9) Using the new columns you created in #7, use grouping to count up how many House Democrats during each month announced their support of impeachment.
 
 ```{r}
+impeach %>% 
+  select(for_impeachment, date_announced) %>% 
+  mutate(date_announced_month=month(date_announced)) %>% 
+  group_by(date_announced_month) %>% 
+  summarise(count_support=n())
 
-  
-
-
-
-
-
-
-
+# After selecting for all the relevant data, I re-mutated to extract the month, and finally grouped the data and summarized it. The results can be seen in the table below
 ```
 
 
