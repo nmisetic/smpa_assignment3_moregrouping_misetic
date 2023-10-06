@@ -96,16 +96,15 @@ impeach %>%
 The relevant column for that is `trump_percent`.
 
 ```{r}
+impeach %>% 
+  group_by(for_impeachment) %>% 
+  summarise(
+    count_support=n(),
+    mean_trump_percent=mean(trump_percent),
+  ) %>% 
+  arrange(desc(count_support))
 
-
-
-
-
-
-
-
-
-
+#The mean Trump % of those for impeachment is 32.04, while for those against was 43.82
 ```
 
 6)  Filter out only the members who are a yes for impeachment. Then of those "Yes" member, how many won their 2018 election by less than 5 percentage points (`margin_flag_2018`) vs. more?
