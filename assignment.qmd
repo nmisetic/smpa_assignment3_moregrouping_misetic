@@ -32,7 +32,7 @@ Additionally, a series of election results and demographics are included related
 ```{r}
 
 impeach <- readRDS("impeach.rds")
-head(impeach)
+impeach
 
 
 ```
@@ -104,21 +104,18 @@ impeach %>%
   ) %>% 
   arrange(desc(count_support))
 
-#The mean Trump % of those for impeachment is 32.04, while for those against was 43.82
+# The mean Trump % of those for impeachment is 32.04, while for those against was 43.82
 ```
 
 6)  Filter out only the members who are a yes for impeachment. Then of those "Yes" member, how many won their 2018 election by less than 5 percentage points (`margin_flag_2018`) vs. more?
 
 ```{r}
+impeach %>% 
+  filter(for_impeachment=="YES") %>% 
+  group_by(margin_flag_2018) %>% 
+  summarise(count_support=n())
 
-  
-
-
-
-
-
-
-
+# After filtering for yes votes, we can see that 17 members won their election by 5 points or less, while 192 won by more than 5 points.
 ```
 
 7)  Come up with another breakdown of your choosing for how you'd like to examine this dataset. Say what you'll look at, and then put the code below to find the answer.
